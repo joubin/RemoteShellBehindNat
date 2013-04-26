@@ -4,14 +4,15 @@ import string
 import os
 import random
 
-HOST='irc.freenode.net'  
+HOST='irc.freenode.net'  # You can use any service however, my code has only been tested with freenode
 PORT=6667 
-NICK='BigData'+str(random.randint(1, 1000))
+NICK='BigData'+str(random.randint(1, 1000)) # You can name it whatever you want. 
+#BigData + somenumber if you are going to have more than one machine
 IDENT=NICK
 REALNAME=NICK 
-OWNER='joubin' 
+OWNER='user' # Change this to your username 
 
-CHANNELINIT='#joubinjabbari' 
+CHANNELINIT='#channel' #Rename this to something that people wont join to. To limit noise by other people 
 readbuffer='' 
 
 def parsemsg(msg): 
