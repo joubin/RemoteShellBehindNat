@@ -64,4 +64,7 @@ Any text put into the room by the "Owner" will be executed as a shell command.
 
 If you have this code running on more than one machine, direct a massage to a machine via
 
-Demo
+**Demo:**
+
+Video: <iframe width="854" height="480" src="https://www.youtube.com/embed/s1T19g5X340" frameborder="0" allowfullscreen></iframe>
+
