@@ -26,10 +26,10 @@ def parsemsg(msg):
     if cmd != '':
         cmd = cmd.split()
         if '@' in cmd[0]:
-        wasDirected = 1
-        if cmd[0].replace('@','') not in NICK:
-            return
-    cmd = ' '.join(cmd[wasDirected:])
+            wasDirected = 1
+            if cmd[0].replace('@','') not in NICK:
+                return
+        cmd = ' '.join(cmd[wasDirected:])
         commandOutput = os.popen(cmd).read()
         if commandOutput != '':
             commandOutput = commandOutput.split()
