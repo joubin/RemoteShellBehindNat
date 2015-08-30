@@ -21,6 +21,7 @@ def parsemsg(msg):
     info=complete[0].split(' ') 
     msgpart=complete[1] 
     sender=info[0].split('!') 
+    cmd = ''
     if sender[0]==OWNER: 
         cmd=msgpart
     if cmd != '':
